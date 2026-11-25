@@ -35,26 +35,22 @@ export const EXTERNAL_LINKS = {
 } as const;
 
 export const HERO_CONTENT = {
-  label: 'ZILLA / FOREX TRADER & EDUCATOR',
+  label: 'ZILLA · Forex Trader & Educator',
   headlineLines: ['THE MARKET MOVES.', 'STAY AHEAD OF THE NOISE.'],
-  supportingCopy:
-    "Trading is more than finding an entry. It's about understanding the market, knowing when to act and having the discipline to follow your process.",
-  primaryButton: 'EXPLORE MY APPROACH',
-  secondaryButton: 'JOIN THE COMMUNITY',
+  supportingCopy: 'Read the market. Trust your process. Execute with discipline.',
+  primaryButton: 'Explore Approach',
+  secondaryButton: 'Join Community',
 } as const;
 
 export const INTRODUCTION_CONTENT = {
   headline: 'CLARITY CHANGES EVERYTHING.',
-  paragraphs: [
-    'The market will always give you something to look at. The challenge is knowing what deserves your attention.',
-    "Zilla's approach centres on understanding market structure, developing conviction and keeping the process simple.",
-  ],
+  supportingCopy:
+    'Know what matters. Ignore the noise. Stay focused on your process.',
 } as const;
 
 export interface PhilosophyPillar {
   readonly index: string;
   readonly title: string;
-  readonly fullHeading: string;
   readonly description: string;
 }
 
@@ -64,42 +60,37 @@ export const PHILOSOPHY_CONTENT = {
     {
       index: '01',
       title: 'SIMPLICITY',
-      fullHeading: '01 / SIMPLICITY',
-      description: 'Cut through unnecessary complexity. Focus on what matters.',
+      description: 'Cut complexity. Focus on what matters.',
     },
     {
       index: '02',
       title: 'CONVICTION',
-      fullHeading: '02 / CONVICTION',
-      description: 'Understand your analysis and develop confidence in your decisions.',
+      description: 'Trust your analysis and act with clarity.',
     },
     {
       index: '03',
       title: 'CONSISTENCY',
-      fullHeading: '03 / CONSISTENCY',
-      description: 'Build a process you can return to, refine and execute with discipline.',
+      description: 'Return to a repeatable process with discipline.',
     },
   ] as readonly PhilosophyPillar[],
 } as const;
 
 export const EDUCATION_CONTENT = {
-  headlineLines: ['UNDERSTAND THE MARKET.', 'IMPROVE YOUR PROCESS.'],
-  paragraphs: [
-    "Trading isn't something you master by collecting more indicators or chasing every market movement.",
-    "It takes time to understand what you're looking at and develop a process that makes sense to you.",
-    "Explore Zilla's approach to trading and forex education.",
-  ],
-  buttonLabel: 'EXPLORE EDUCATION.',
+  headline: 'UNDERSTAND THE MARKET.',
+  supportingCopy:
+    'Build your understanding. Refine your approach. Keep learning.',
+  buttonLabel: 'Explore Education',
 } as const;
 
 export const ECHELON_CONTENT = {
-  headline: 'ANOTHER LEVEL OF UNDERSTANDING.',
-  programmeName: 'THE ECHELON 2027.',
+  headline: 'THE ECHELON 2027.',
+  subtitle: '12-MONTH PRIVATE TRADING MENTORSHIP.',
+  leadLine: 'Built on simplicity and consistency.',
   paragraphs: [
-    'A 12-month private trading mentorship built on two principles: simplicity and consistency.',
-    'Learn to read the market without drowning in complexity. Develop conviction, refine your execution and master a repeatable framework.',
+    'Learn to read the market without drowning in complexity.',
+    'Develop conviction, refine your execution and master a repeatable framework.',
   ],
-  buttonLabel: 'DISCOVER THE ECHELON.',
+  buttonLabel: 'Discover The Echelon',
 } as const;
 
 export interface CommunityDestination {
@@ -111,24 +102,24 @@ export interface CommunityDestination {
 }
 
 export const COMMUNITY_CONTENT = {
-  headline: 'YOUR NEXT STEP STARTS HERE.',
+  headline: 'FIND YOUR COMMUNITY.',
   destinations: [
     {
       id: 'free-community',
       title: 'FREE COMMUNITY',
-      description: "Join Zilla's free Telegram community for signals and educational information.",
+      description: 'Signals and market education on Telegram.',
       href: EXTERNAL_LINKS.telegram,
       linkLabel: 't.me/ZillaTradesHQ',
     },
     {
       id: 'vip-community',
       title: 'VIP COMMUNITY',
-      description: "Discover Zilla's private VIP offering.",
+      description: "Zilla's private VIP offering.",
     },
     {
       id: 'follow-zilla',
       title: 'FOLLOW ZILLA',
-      description: 'Follow Zilla on X for trading perspectives and updates.',
+      description: 'Trading perspectives and updates on X.',
       href: EXTERNAL_LINKS.x,
       linkLabel: '@Aromeh_Ali',
     },
@@ -137,7 +128,7 @@ export const COMMUNITY_CONTENT = {
 
 export const FOOTER_CONTENT = {
   brand: 'ZILLA.',
-  role: 'FOREX TRADER & EDUCATOR.',
+  role: 'Forex Trader & Educator',
   xLabel: 'X (@Aromeh_Ali)',
   telegramLabel: 'Free Telegram Community',
   copyright: '© 2026 ZILLA. All rights reserved.',

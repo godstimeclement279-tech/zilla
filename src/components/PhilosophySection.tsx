@@ -1,64 +1,122 @@
 import { PHILOSOPHY_CONTENT } from '../data/homepageContent';
 
 export function PhilosophySection() {
+  const [simplicity, conviction, consistency] = PHILOSOPHY_CONTENT.pillars;
+
   return (
     <section
       id="philosophy"
       data-section="philosophy"
-      className="relative bg-[#151719] py-28 md:py-40"
+      className="relative overflow-hidden py-28 md:py-44"
     >
-      <div className="mx-auto max-w-[1360px] px-6 md:px-12">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-[#F2F1EC]/12 pb-10">
-          <div>
-            <span
-              data-scroll-reveal
-              className="block font-mono text-xs tracking-[0.2em] text-[#A8DAD5]"
-            >
-              03
-            </span>
-            <h2
-              data-scroll-reveal
-              className="mt-4 font-display text-[clamp(2rem,3.8vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F2F1EC] text-balance"
-            >
-              {PHILOSOPHY_CONTENT.headline}
-            </h2>
-          </div>
-        </div>
+      <div className="relative z-10 mx-auto max-w-[1360px] px-6 md:px-12">
+        <h2
+          data-scroll-reveal
+          className="font-display text-[clamp(2.1rem,4vw,3.5rem)] font-semibold leading-[1.06] tracking-[-0.028em] text-[#F2F1EC] text-balance"
+        >
+          {PHILOSOPHY_CONTENT.headline}
+        </h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-3 md:gap-0">
-          {PHILOSOPHY_CONTENT.pillars.map((pillar, idx) => (
-            <article
-              key={pillar.index}
-              data-scroll-reveal
-              className={`group relative flex flex-col justify-between pt-8 md:pt-4 transition-colors duration-300 ${
-                idx === 0
-                  ? 'md:pr-10'
-                  : idx === 1
-                    ? 'border-t border-[#F2F1EC]/12 md:border-t-0 md:border-l md:border-[#F2F1EC]/12 md:px-10'
-                    : 'border-t border-[#F2F1EC]/12 md:border-t-0 md:border-l md:border-[#F2F1EC]/12 md:pl-10'
-              }`}
-            >
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="font-display text-4xl md:text-5xl font-semibold tracking-[-0.03em] text-[#A8DAD5]/28 transition-colors duration-300 group-hover:text-[#A8DAD5]">
-                    {pillar.index}
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="h-px w-8 bg-[#A8DAD5]/35 transition-all duration-300 group-hover:w-14 group-hover:bg-[#A8DAD5]"
-                  />
-                </div>
+        {/* Three visually distinct editorial compositions */}
+        <div className="mt-16 md:mt-24 space-y-14 md:space-y-20">
+          {/* 01 — SIMPLICITY: Broad left composition backed by translucent icy-teal glass */}
+          <article
+            data-scroll-reveal
+            className="group relative grid grid-cols-1 gap-6 border-t border-[#F2F1EC]/14 pt-10 lg:grid-cols-12 lg:items-center"
+          >
+            <div
+              aria-hidden="true"
+              className="liquid-glass-icy pointer-events-none absolute -left-8 top-4 -z-10 h-44 w-72 opacity-45 transition-opacity duration-500 group-hover:opacity-75"
+              style={{
+                borderRadius: '48% 52% 40% 60% / 56% 42% 58% 44%',
+                WebkitMaskImage:
+                  'radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)',
+                maskImage:
+                  'radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)',
+              }}
+            />
+            <div className="lg:col-span-2">
+              <span className="font-mono text-xs tracking-[0.22em] text-[#A8DAD5]">
+                {simplicity.index}
+              </span>
+            </div>
+            <div className="lg:col-span-5">
+              <h3 className="font-display text-[clamp(2.15rem,4.1vw,3.7rem)] font-semibold tracking-[-0.03em] text-[#F2F1EC] transition-colors duration-300 group-hover:text-[#A8DAD5]">
+                {simplicity.title}
+              </h3>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="max-w-[34ch] text-base md:text-lg leading-[1.65] text-[#F2F1EC]/76">
+                {simplicity.description}
+              </p>
+            </div>
+          </article>
 
-                <h3 className="mt-8 font-mono text-sm font-medium tracking-[0.18em] text-[#F2F1EC] transition-colors duration-300 group-hover:text-[#A8DAD5]">
-                  {pillar.fullHeading}
-                </h3>
+          {/* 02 — CONVICTION: Right-offset composition with warm-orange rim highlight */}
+          <article
+            data-scroll-reveal
+            className="group relative grid grid-cols-1 gap-6 border-t border-[#F2F1EC]/14 pt-10 lg:grid-cols-12 lg:items-center"
+          >
+            <div
+              aria-hidden="true"
+              className="liquid-glass-orange pointer-events-none absolute right-[12%] top-2 -z-10 h-40 w-56 opacity-40 transition-opacity duration-500 group-hover:opacity-70"
+              style={{
+                borderRadius: '54% 46% 62% 38% / 44% 58% 42% 56%',
+                WebkitMaskImage:
+                  'radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 75%)',
+                maskImage:
+                  'radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 75%)',
+              }}
+            />
+            <div className="lg:col-start-3 lg:col-span-2">
+              <span className="font-mono text-xs tracking-[0.22em] text-[#F08A55]">
+                {conviction.index}
+              </span>
+            </div>
+            <div className="lg:col-span-4">
+              <h3 className="font-display text-[clamp(2.15rem,4.1vw,3.7rem)] font-semibold tracking-[-0.03em] text-[#F2F1EC] transition-colors duration-300 group-hover:text-[#A8DAD5]">
+                {conviction.title}
+              </h3>
+            </div>
+            <div className="lg:col-span-4">
+              <p className="max-w-[34ch] text-base md:text-lg leading-[1.65] text-[#F2F1EC]/76">
+                {conviction.description}
+              </p>
+            </div>
+          </article>
 
-                <p className="mt-5 max-w-[34ch] text-base md:text-[17px] leading-[1.68] text-[#F2F1EC]/72">
-                  {pillar.description}
-                </p>
-              </div>
-            </article>
-          ))}
+          {/* 03 — CONSISTENCY: Anchored asymmetric glass-veiled composition */}
+          <article
+            data-scroll-reveal
+            className="group relative grid grid-cols-1 gap-6 border-y border-[#F2F1EC]/14 py-10 lg:grid-cols-12 lg:items-center"
+          >
+            <div
+              aria-hidden="true"
+              className="liquid-glass-deep pointer-events-none absolute left-[24%] top-0 -z-10 h-44 w-80 opacity-50 transition-opacity duration-500 group-hover:opacity-80"
+              style={{
+                borderRadius: '58% 42% 46% 54% / 40% 62% 38% 60%',
+                WebkitMaskImage:
+                  'radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)',
+                maskImage:
+                  'radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)',
+              }}
+            />
+            <div className="lg:col-span-2">
+              <span className="font-mono text-xs tracking-[0.22em] text-[#A8DAD5]">
+                {consistency.index}
+              </span>
+            </div>
+            <div className="lg:col-span-6">
+              <h3 className="font-display text-[clamp(2.15rem,4.1vw,3.7rem)] font-semibold tracking-[-0.03em] text-[#F2F1EC] transition-colors duration-300 group-hover:text-[#A8DAD5]">
+                {consistency.title}
+              </h3>
+            </div>
+            <div className="lg:col-span-4">
+              <p className="max-w-[34ch] text-base md:text-lg leading-[1.65] text-[#F2F1EC]/76">
+                {consistency.description}
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>

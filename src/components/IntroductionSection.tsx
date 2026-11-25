@@ -5,53 +5,40 @@ export function IntroductionSection() {
     <section
       id="introduction"
       data-section="introduction"
-      className="relative overflow-hidden bg-[#202326] py-28 md:py-40"
+      className="relative overflow-hidden bg-[#202326]/55 py-28 md:py-44 border-y border-[#F2F1EC]/8"
     >
-      {/* Subtle atmospheric teal gradient depth */}
+      {/* Translucent liquid-glass editorial veil behind typography */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-60"
+        data-section-glass
+        className="liquid-glass-surface pointer-events-none absolute right-[-8vw] top-1/2 hidden h-[380px] w-[52vw] max-w-[720px] -translate-y-1/2 lg:block opacity-65"
         style={{
-          background:
-            'radial-gradient(ellipse 65% 55% at 82% 28%, rgba(57, 127, 123, 0.22) 0%, rgba(32, 35, 38, 0) 72%)',
+          borderRadius: '46% 54% 40% 60% / 52% 44% 56% 48%',
+          WebkitMaskImage:
+            'radial-gradient(ellipse 78% 72% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)',
+          maskImage:
+            'radial-gradient(ellipse 78% 72% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)',
         }}
       />
 
       <div className="relative z-10 mx-auto max-w-[1360px] px-6 md:px-12">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4 flex flex-col justify-between">
-            <div data-scroll-reveal className="flex items-center gap-4">
-              <span className="font-mono text-xs tracking-[0.2em] text-[#A8DAD5]">
-                02
-              </span>
-              <span className="h-px w-10 bg-[#A8DAD5]/40" aria-hidden="true" />
-            </div>
-          </div>
-
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <h2
               data-scroll-reveal
-              className="font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F2F1EC] text-balance max-w-[18ch]"
+              className="font-display text-[clamp(2.5rem,5.2vw,4.65rem)] font-semibold leading-[1.03] tracking-[-0.032em] text-[#F2F1EC] text-balance max-w-[15ch]"
             >
-              {INTRODUCTION_CONTENT.headline}
+              <span className="text-[#A8DAD5]">CLARITY</span> CHANGES EVERYTHING.
             </h2>
+          </div>
 
-            <div className="mt-12 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-12">
-              <div className="hidden md:block md:col-span-2 pt-2">
-                <div className="h-px w-full bg-[#F2F1EC]/15" aria-hidden="true" />
-              </div>
-              <div className="md:col-span-10 max-w-[56ch] space-y-6">
-                {INTRODUCTION_CONTENT.paragraphs.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    data-scroll-reveal
-                    className="text-lg md:text-xl leading-[1.68] tracking-[0.005em] text-[#F2F1EC]/80"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
+          <div className="lg:col-span-4 lg:pb-2">
+            <p
+              data-scroll-reveal
+              className="max-w-[34ch] text-lg md:text-xl leading-[1.65] tracking-[0.005em] text-[#F2F1EC]/84"
+            >
+              {INTRODUCTION_CONTENT.supportingCopy}
+            </p>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
+import { LiquidGlassBackdrop } from './components/LiquidGlassBackdrop';
 import { HeroSection } from './components/HeroSection';
 import { IntroductionSection } from './components/IntroductionSection';
 import { PhilosophySection } from './components/PhilosophySection';
@@ -81,6 +82,73 @@ export default function App() {
       );
 
       if (!compact) {
+        // Scroll-connected Liquid Glass visual formations across the entire page
+        const icyFormation = document.querySelector('[data-glass-formation="icy"]');
+        if (icyFormation) {
+          gsap.to(icyFormation, {
+            xPercent: -24,
+            yPercent: 18,
+            scale: 1.12,
+            opacity: 0.65,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: rootRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 1.2,
+            },
+          });
+        }
+
+        const deepFormation = document.querySelector('[data-glass-formation="deep"]');
+        if (deepFormation) {
+          gsap.to(deepFormation, {
+            xPercent: 28,
+            yPercent: -22,
+            scale: 1.16,
+            opacity: 0.9,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: rootRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 1.4,
+            },
+          });
+        }
+
+        const orangeFormation = document.querySelector('[data-glass-formation="orange"]');
+        if (orangeFormation) {
+          gsap.to(orangeFormation, {
+            xPercent: -18,
+            yPercent: -34,
+            scale: 1.22,
+            opacity: 0.85,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: rootRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 1.0,
+            },
+          });
+        }
+
+        // Section-level glass veil parallax
+        gsap.utils.toArray<HTMLElement>('[data-section-glass]').forEach((veil) => {
+          gsap.to(veil, {
+            y: -48,
+            scale: 1.05,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: veil.closest('section') ?? veil,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.9,
+            },
+          });
+        });
+
         // Editorial section reveals via ScrollTrigger
         const sections = gsap.utils.toArray<HTMLElement>('[data-section]');
         sections.forEach((section) => {
@@ -101,13 +169,13 @@ export default function App() {
             clearProps: 'transform,opacity',
             scrollTrigger: {
               trigger: section,
-              start: 'top 82%',
+              start: 'top 84%',
               once: true,
             },
           });
         });
 
-        // Subtle desktop parallax on portrait and architectural motif
+        // Subtle desktop parallax on portrait and Echelon glass architecture
         const portraitEl = document.querySelector('[data-hero-portrait]');
         if (portraitEl) {
           gsap.to(portraitEl, {
@@ -182,9 +250,10 @@ export default function App() {
   }, []);
 
   return (
-    <div ref={rootRef} className="min-h-screen bg-[#151719] text-[#F2F1EC]">
+    <div ref={rootRef} className="relative min-h-screen bg-[#151719] text-[#F2F1EC]">
+      <LiquidGlassBackdrop />
       <Navbar activeSection={activeSection} />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <IntroductionSection />
         <PhilosophySection />
@@ -192,7 +261,9 @@ export default function App() {
         <EchelonSection onDiscoverClick={() => scrollToSection('community')} />
         <CommunitySection />
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 }
