@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-icy-teal: #A8DAD5;
+  --color-deep-teal: #397F7B;
+  --color-light-black: #151719;
+  --color-charcoal: #202326;
+  --color-soft-white: #F2F1EC;
+  --color-warm-orange: #F08A55;
+  --color-muted-red: #D85D52;
+}
+
+@layer base {
+  html {
+    background-color: #151719;
+    color: #F2F1EC;
+    font-family: var(--font-sans);
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: #151719;
+    color: #F2F1EC;
+    overflow-x: hidden;
+  }
+}
+
+.gradient-a {
+  background: linear-gradient(135deg, #151719 0%, #243B3B 50%, #151719 100%);
+}
+
+.gradient-b {
+  background: linear-gradient(135deg, #202326 0%, #397F7B 50%, #202326 100%);
+}
+
+.gradient-c {
+  background: linear-gradient(135deg, #151719 0%, #2B2523 50%, #151719 100%);
+}
+
+.editorial-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+@keyframes slowGradientShift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.72;
+  }
+  50% {
+    transform: translate3d(-2%, 2%, 0) scale(1.06);
+    opacity: 0.92;
+  }
+}
+
+.animate-teal-drift {
+  animation: slowGradientShift 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-teal-drift {
+    animation: none;
+  }
+}
+
